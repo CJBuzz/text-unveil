@@ -68,3 +68,7 @@ const unveil = (htmlString, containerEl, letterDelay = 30) => {
 
   traverse(doc.body, containerEl, letterDelay);
 };
+
+const unveilEl = (element, containerEl, letterDelay = 30) => {
+  traverse(element, containerEl, letterDelay);
+};
