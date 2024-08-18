@@ -40,7 +40,7 @@ You can refer to `showcase.html` for another example. The page looks like [this]
 
 #### Adding to a HTML Element
 
-Alternatively, if you a HTML element with children nodes that was created using `document.createElement` or other means (not yet displayed in DOM) and you wish to directly apply text unveil, you can use `unveilEl` instead
+Alternatively, if you a HTML element with children nodes that was created using `document.createElement` or other means (not yet displayed in DOM) and you wish to directly apply text unveil, you can use `unveilEl` instead.
 
 ```js
 unveilEl(element, containerElement, delay);
