@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Text Unveil Showcase</title>
+    <script src="text-unveil.js"></script>
+    <style>
+      body {
+        display: flex;
+        height: 100vh;
+        align-items: center;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      }
+
+      #static-container {
+        border-right: thick solid #444444;
+      }
+
+      .container {
+        width: 50%;
+        height: 100%;
+        padding: 2em;
+      }
+
+      h1 {
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="static-container" class="container"></div>
+    <div id="unveil-container" class="container"></div>
+
+    <script>
+      const htmlString = `
+            <div>
+                <h1>This is the title</h1>
+                <p><a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">This is a paragraph <strong>with a few bolded words</strong> and a hyperlink.</a></p>
+                <br />
+                <p>This is an unordered list</p>
+                <ul>
+                <li>List item 1</li>
+                <li>List item 2</li>
+                </ul>
+            </div>
+            <p>Text&#39;s ending paragraph.</p>
+            `;
+      const staticContainer = document.getElementById("static-container");
+      staticContainer.innerHTML = htmlString;
+
+      const unveilContainer = document.getElementById("unveil-container");
+      unveil(htmlString, unveilContainer, 50);
+    </script>
+  </body>
+</html>
