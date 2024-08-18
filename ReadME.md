@@ -36,7 +36,7 @@ const unveilContainer = document.createElement("div");
 unveil(htmlString, unveilContainer, 50);
 ```
 
-You can refer to `showcase.html` for another example. The page looks like [this](https://cjbuzz.github.io/text-unveil/showcase.html)
+You can refer to `showcase.html` for another example. The page looks like [this](https://cjbuzz.github.io/text-unveil/showcase.html).
 
 #### Adding to a HTML Element
 
