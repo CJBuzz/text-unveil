@@ -11,15 +11,16 @@ Text Unveil is a simple javascript module to display text letter by letter, mimi
 <script src="https://cjbuzz.github.io/text-unveil/text-unveil.js"></script>
 ```
 
-#### Adding to a HTML string
+#### Usage on a HTML string
 
 Use the `unveil` function
 
 ```js
-unveil(htmlString, containerElement, delay);
+unveil(htmlString, containerElement, delay, callback);
 //htmlString is the string in html syntax
 //containerElement is a html element object
 //delay is the time (in milliseconds) between each successive letter being revealed
+//callback is a function to be executed after the html elements finished loading
 ```
 
 Example:
@@ -33,16 +34,16 @@ const htmlString = `<div>
 
 //Make a container element
 const unveilContainer = document.createElement("div");
-unveil(htmlString, unveilContainer, 50);
+unveil(htmlString, unveilContainer, 50, () => console.log('Finished Loading!'));
 ```
 
 You can refer to `showcase.html` for another example. The page looks like [this](https://cjbuzz.github.io/text-unveil/showcase.html).
 
 #### Adding to a HTML Element
 
-Alternatively, if you a HTML element with children nodes that was created using `document.createElement` or other means (not yet displayed in DOM) and you wish to directly apply text unveil, you can use `unveilEl` instead.
+Alternatively, if you a HTML element with children nodes that was created using `document.createElement` or other means (not yet displayed in DOM) and you wish to directly apply text unveil, simply change the first argument to the element object instead.
 
 ```js
-unveilEl(element, containerElement, delay);
+unveil(element, containerElement, delay, callback);
 //element is a HTML element object
 ```

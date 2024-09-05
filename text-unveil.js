@@ -60,15 +60,25 @@ const traverse = (elementNode, containerEl, letterDelay) => {
   return promiseArr;
 };
 
-const unveil = (htmlString, containerEl, letterDelay = 30) => {
-  const doc = new DOMParser().parseFromString(
-    htmlString.trim().replace(/>\s+</g, "><"),
-    "text/html"
+const unveil = (input, containerEl, letterDelay = 30, callback = () => {}) => {
+  let element
+
+  if (typeof input === 'string') {
+    const doc = new DOMParser().parseFromString(
+      htmlString.trim().replace(/>\s+</g, "><"),
+      "text/html"
+    );
+    element = doc.body
+  }
+  
+  else if (input instanceof Node && input.nodeType === Node.ELEMENT_NODE) element = input
+
+  else console.error("Argument 'input' requires a html string or an Element Node object!")
+
+  const traversePromise = traverse(element, containerEl, letterDelay)
+  Promise.all(traversePromise).then(()=> {
+    if (typeof callback === 'function') callback()
+    else console.warn("Argument 'callback' requires a function!")
+  }
   );
-
-  traverse(doc.body, containerEl, letterDelay);
-};
-
-const unveilEl = (element, containerEl, letterDelay = 30) => {
-  traverse(element, containerEl, letterDelay);
 };

@@ -50,7 +50,7 @@
       staticContainer.innerHTML = htmlString;
 
       const unveilContainer = document.getElementById("unveil-container");
-      unveil(htmlString, unveilContainer, 50);
+      unveil(htmlString, unveilContainer, 15, () => console.log('Done!'));
     </script>
   </body>
 </html>
